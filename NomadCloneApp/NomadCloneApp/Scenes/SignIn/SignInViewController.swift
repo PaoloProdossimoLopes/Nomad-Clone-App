@@ -9,9 +9,45 @@ import UIKit
 
 final class SignInViewController: UIViewController {
     
+    //MARK: - UI Components
+    
+    private lazy var nomadLogo: UIImageView = {
+        let image = UIImage(named: "NomadLogoBlack")
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    //MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        commonInit()
+    }
+    
+    //MARK: - Helpers
+    
+    private func commonInit() {
+        configureViewHierarchy()
+        configureConstrints()
+        configureStyle()
+    }
+    
+    private func configureViewHierarchy() {
+        view.addSubview(nomadLogo)
+    }
+    
+    private func configureConstrints() {
+        nomadLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        nomadLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        nomadLogo.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        nomadLogo.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    private func configureStyle() {
+        self.view.backgroundColor = .white
     }
     
 }

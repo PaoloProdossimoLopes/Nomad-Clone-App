@@ -13,7 +13,8 @@ final class Orchestrator: UIViewController {
         super.viewDidLoad()
         
         OperationQueue.main.addOperation { [weak self] in
-            self?.goToSignIn()
+            guard let self = self else { return }
+            self.goToSignIn()
         }
         
     }
