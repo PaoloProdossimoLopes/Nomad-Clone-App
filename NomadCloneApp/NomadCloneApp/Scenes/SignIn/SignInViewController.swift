@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class SignInViewController: NomadCustomViewController {
     
@@ -29,7 +30,8 @@ final class SignInViewController: NomadCustomViewController {
         titleStackText: "Insira sua senha de 8 caracteres",
         placeholderText: "Sua senha",
         buttonTitle: "Esquceu?",
-        shouldDisplayButton: true
+        shouldDisplayButton: true,
+        isSecure: true
     )
     
     private lazy var accessAccountButton: UIButton = {
@@ -79,29 +81,38 @@ final class SignInViewController: NomadCustomViewController {
     }
     
     func configureConstraint() {
-        nomadLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                       constant: 20).isActive = true
-        nomadLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        nomadLogo.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        nomadLogo.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        mainStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        nomadLogo.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            $0.centerX.equalTo(view.snp.centerX)
+            $0.width.equalTo(120)
+            $0.height.equalTo(50)
+        }
         
-        createAccountLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15).isActive = true
-        createAccountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mainStackView.snp.makeConstraints {
+            $0.centerY.equalTo(view.snp.centerY)
+            $0.leading.equalTo(view.snp.leading).offset(20)
+            $0.trailing.equalTo(view.snp.trailing).offset(-20)
+        }
         
+        createAccountLabel.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
+            $0.centerX.equalTo(view.snp.centerX)
+        }
         
-        accessAccountButton.bottomAnchor.constraint(equalTo: createAccountLabel.topAnchor, constant: -20).isActive = true
-        accessAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        accessAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        accessAccountButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        accessAccountButton.snp.makeConstraints {
+            $0.bottom.equalTo(createAccountLabel.snp.top).offset(-20)
+            $0.leading.equalTo(view.snp.leading).offset(20)
+            $0.trailing.equalTo(view.snp.trailing).offset(-20)
+            $0.height.equalTo(50)
+        }
+        
     }
     
     func configureStyle() {
         self.view.backgroundColor = .white
     }
+    
 }
 
 

@@ -14,6 +14,7 @@ final class NomadCustomTextFieldStackView: UIStackView {
     private let buttonTitle: String
     
     private let shouldDisplayButton: Bool
+    private let isSecure: Bool
     
     private lazy var passswordTitleLabel: UILabel = {
         let label = UILabel()
@@ -29,7 +30,7 @@ final class NomadCustomTextFieldStackView: UIStackView {
         tf.attributedPlaceholder = NSAttributedString(string: tf.placeholder ?? "",
                                                       attributes: [.foregroundColor: UIColor.gray])
         tf.textColor = .black
-        tf.isSecureTextEntry = true
+        tf.isSecureTextEntry = isSecure
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -55,11 +56,12 @@ final class NomadCustomTextFieldStackView: UIStackView {
     }()
     
     init(titleStackText: String, placeholderText: String,
-         buttonTitle: String = "", shouldDisplayButton: Bool = false) {
+         buttonTitle: String = "", shouldDisplayButton: Bool = false, isSecure: Bool = false) {
         self.titleStackText = titleStackText
         self.placeholderText = placeholderText
         self.buttonTitle = buttonTitle
         self.shouldDisplayButton = shouldDisplayButton
+        self.isSecure = isSecure
         super.init(frame: .zero)
         
         commonInit()
@@ -97,5 +99,6 @@ extension NomadCustomTextFieldStackView: CustomBaseViewLayout {
         axis = .vertical
         translatesAutoresizingMaskIntoConstraints = false
     }
+    
 }
 

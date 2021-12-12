@@ -1,0 +1,6 @@
+framework module Pods_NomadCloneApp {
+  umbrella header "Pods-NomadCloneApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
