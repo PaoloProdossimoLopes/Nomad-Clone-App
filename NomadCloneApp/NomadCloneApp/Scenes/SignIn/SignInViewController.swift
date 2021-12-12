@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignInViewController: UIViewController {
+final class SignInViewController: NomadCustomViewController {
     
     //MARK: - UI Components
     
@@ -20,84 +20,17 @@ final class SignInViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var CPFTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Insira seu CPF"
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
+    private lazy var CPFStackView = NomadCustomTextFieldStackView(
+        titleStackText: "Insira seu CPF",
+        placeholderText: "Seu CPF"
+    )
     
-    private lazy var CPFTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "Seu CPF"
-        tf.attributedPlaceholder = NSAttributedString(string: tf.placeholder ?? "", attributes: [.foregroundColor: UIColor.gray])
-        tf.textColor = .black
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        return tf
-    }()
-    
-    private lazy var CPFBottomDividerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var CPFStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.spacing = 5
-        stack.axis = .vertical
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    
-    private lazy var passswordTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Insira sua senha de 8 caracteres"
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
-    
-    private lazy var passswordTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "Sua senha"
-        tf.attributedPlaceholder = NSAttributedString(string: tf.placeholder ?? "",
-                                                      attributes: [.foregroundColor: UIColor.gray])
-        tf.textColor = .black
-        tf.isSecureTextEntry = true
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        return tf
-    }()
-    
-    private lazy var passwordTextFieldHStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [passswordTextField, forgotPasswordButton])
-        stack.axis = .horizontal
-        return stack
-    }()
-    
-    private lazy var passswordBottomDividerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var forgotPasswordButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Esqueceu?", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-    
-    private lazy var passswordStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.spacing = 5
-        stack.axis = .vertical
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
+    private lazy var passswordStackView = NomadCustomTextFieldStackView(
+        titleStackText: "Insira sua senha de 8 caracteres",
+        placeholderText: "Sua senha",
+        buttonTitle: "Esquceu?",
+        shouldDisplayButton: true
+    )
     
     private lazy var accessAccountButton: UIButton = {
         let button = UIButton(type: .system)
@@ -137,44 +70,20 @@ final class SignInViewController: UIViewController {
     
     //MARK: - Helpers
     
-    private func commonInit() {
-        configureViewHierarchy()
-        configureConstrints()
-        configureStyle()
-    }
-    
-    private func configureViewHierarchy() {
-        view.addSubview(nomadLogo) // adicionando o logo na tela
+    func configureViewHierarchy() {
         
-        CPFStackView.addArrangedSubview(CPFTitleLabel) // add label na stack
-        CPFStackView.addArrangedSubview(CPFTextField) // add tf na stack
-        CPFStackView.addArrangedSubview(CPFBottomDividerView) // add divider na stack
-//        view.addSubview(CPFStackView) // add a stack na tela
-        
-        passswordStackView.addArrangedSubview(passswordTitleLabel) // add label na stack
-        passswordStackView.addArrangedSubview(passwordTextFieldHStack) // add tf na stack
-        passswordStackView.addArrangedSubview(passswordBottomDividerView) // add divider na stack
-//        view.addSubview(passswordStackView) // add a stack na tela
-        view.addSubview(mainStackView) //add a main stack na tela
-        
-        view.addSubview(accessAccountButton) // add botao na tela
-        view.addSubview(createAccountLabel) // add label na tela
+        [nomadLogo, mainStackView, accessAccountButton, createAccountLabel].forEach { view in
+            self.view.addSubview(view)
+        }
         
     }
     
-    private func configureConstrints() {
+    func configureConstraint() {
         nomadLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                        constant: 20).isActive = true
         nomadLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nomadLogo.widthAnchor.constraint(equalToConstant: 120).isActive = true
         nomadLogo.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        CPFTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        CPFBottomDividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        
-        passswordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        passswordBottomDividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        forgotPasswordButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         mainStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -188,13 +97,11 @@ final class SignInViewController: UIViewController {
         accessAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         accessAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         accessAccountButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
     }
     
-    private func configureStyle() {
+    func configureStyle() {
         self.view.backgroundColor = .white
     }
-    
 }
 
 
