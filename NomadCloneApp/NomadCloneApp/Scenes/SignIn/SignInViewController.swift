@@ -17,7 +17,6 @@ final class SignInViewController: NomadCustomViewController {
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -38,9 +37,8 @@ final class SignInViewController: NomadCustomViewController {
         let button = UIButton(type: .system)
         button.setTitle("Acessar conta", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.4)
+        button.backgroundColor = .disableButtonColor
         button.layer.cornerRadius = 8
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -49,9 +47,7 @@ final class SignInViewController: NomadCustomViewController {
         let label = UILabel()
         label.text = "Abrir minha conta"
         label.textColor = .black
-        label.attributedText = NSAttributedString(string: label.text ?? "", attributes:
-            [.underlineStyle: NSUnderlineStyle.single.rawValue])
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.attributedText = label.text?.underLined
         return label
     }()
     
@@ -59,7 +55,6 @@ final class SignInViewController: NomadCustomViewController {
         let stack = UIStackView(arrangedSubviews: [CPFStackView, passswordStackView])
         stack.spacing = 30
         stack.axis = .vertical
-        stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
@@ -68,15 +63,15 @@ final class SignInViewController: NomadCustomViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()
+        configureDelegates()
     }
     
     //MARK: - Helpers
     
     func configureViewHierarchy() {
         
-        [nomadLogo, mainStackView, accessAccountButton, createAccountLabel].forEach { view in
-            self.view.addSubview(view)
-        }
+        [nomadLogo, mainStackView, accessAccountButton, createAccountLabel]
+            .forEach { view in self.view.addSubview(view) }
         
     }
     
@@ -109,18 +104,32 @@ final class SignInViewController: NomadCustomViewController {
         
     }
     
+    private func configureDelegates() {
+        CPFStackView.delegate = self
+        passswordStackView.delegate = self
+    }
+    
     func configureStyle() {
         self.view.backgroundColor = .white
     }
     
+    private func buttonIsEnable() -> Bool {
+        let CPFConditions: Bool = (!CPFStackView.getTFText().isEmpty)
+        let passwordConditions: Bool = (!passswordStackView.getTFText().isEmpty)
+        return CPFConditions && passwordConditions
+    }
+    
+    private func changeButtonState(_ isEnable: Bool) {
+        accessAccountButton.isEnabled = isEnable
+        accessAccountButton.backgroundColor = isEnable ? .nomadYellowColor : .disableButtonColor
+    }
+    
 }
 
+//MARK: - NomadCustomTextFieldStackViewDelegate
 
-
-//extension String {
-//
-//    var underLined: NSAttributedString {
-//        NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-//    }
-//
-//}
+extension SignInViewController: NomadCustomTextFieldStackViewDelegate {
+    func updateTextField(text: String) {
+        changeButtonState(buttonIsEnable())
+    }
+}

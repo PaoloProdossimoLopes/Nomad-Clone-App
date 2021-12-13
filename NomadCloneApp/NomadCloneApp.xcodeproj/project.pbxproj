@@ -16,6 +16,9 @@
 		B18622B82762E3F600D69B75 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18622B72762E3F600D69B75 /* SignInViewController.swift */; };
 		B1CC7A09276585FF0094D6FF /* NomadCustomTextFieldStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A08276585FF0094D6FF /* NomadCustomTextFieldStackView.swift */; };
 		B1CC7A0B27658CC70094D6FF /* CustomBaseViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A0A27658CC70094D6FF /* CustomBaseViewLayout.swift */; };
+		B1CC7A262766DCDA0094D6FF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A252766DCDA0094D6FF /* String+Extensions.swift */; };
+		B1CC7A282766DFB00094D6FF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A272766DFB00094D6FF /* UIColor+Extension.swift */; };
+		B1CC7A2A2766ED340094D6FF /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A292766ED340094D6FF /* CGFloat+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		B18622B72762E3F600D69B75 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B1CC7A08276585FF0094D6FF /* NomadCustomTextFieldStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadCustomTextFieldStackView.swift; sourceTree = "<group>"; };
 		B1CC7A0A27658CC70094D6FF /* CustomBaseViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBaseViewLayout.swift; sourceTree = "<group>"; };
+		B1CC7A252766DCDA0094D6FF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B1CC7A272766DFB00094D6FF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B1CC7A292766ED340094D6FF /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		C4936FDD30835BD078D66027 /* Pods_NomadCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NomadCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,7 +58,6 @@
 				8213906397F78266515AA07A /* Pods-NomadCloneApp.debug.xcconfig */,
 				135631E0E00179B4ADC223CB /* Pods-NomadCloneApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -78,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B18622B52762E2C700D69B75 /* Orchestrator.swift */,
+				B1CC7A232766DC870094D6FF /* Utils */,
 				B1CC7A07276585CE0094D6FF /* Commons */,
 				B18622B32762E24B00D69B75 /* Scenes */,
 				B18622B22762E07B00D69B75 /* Defaults */,
@@ -120,6 +126,24 @@
 				B1CC7A0A27658CC70094D6FF /* CustomBaseViewLayout.swift */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		B1CC7A232766DC870094D6FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B1CC7A242766DC8E0094D6FF /* Class+Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B1CC7A242766DC8E0094D6FF /* Class+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1CC7A252766DCDA0094D6FF /* String+Extensions.swift */,
+				B1CC7A292766ED340094D6FF /* CGFloat+Extension.swift */,
+				B1CC7A272766DFB00094D6FF /* UIColor+Extension.swift */,
+			);
+			path = "Class+Extensions";
 			sourceTree = "<group>";
 		};
 		F7AD710829D7D38FFDD54360 /* Frameworks */ = {
@@ -245,11 +269,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B18622B82762E3F600D69B75 /* SignInViewController.swift in Sources */,
+				B1CC7A262766DCDA0094D6FF /* String+Extensions.swift in Sources */,
 				B186229F2762DFDA00D69B75 /* AppDelegate.swift in Sources */,
 				B1CC7A0B27658CC70094D6FF /* CustomBaseViewLayout.swift in Sources */,
+				B1CC7A2A2766ED340094D6FF /* CGFloat+Extension.swift in Sources */,
 				B18622B62762E2C700D69B75 /* Orchestrator.swift in Sources */,
 				B1CC7A09276585FF0094D6FF /* NomadCustomTextFieldStackView.swift in Sources */,
 				B18622A12762DFDA00D69B75 /* SceneDelegate.swift in Sources */,
+				B1CC7A282766DFB00094D6FF /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

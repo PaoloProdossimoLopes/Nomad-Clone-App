@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol NomadCustomTextFieldStackViewDelegate: AnyObject {
+    func updateTextField(text: String)
+}
+
 final class NomadCustomTextFieldStackView: UIStackView {
+    
+    //MARK: - Properties
+    
+    weak var delegate: NomadCustomTextFieldStackViewDelegate?
     
     private let titleStackText: String
     private let placeholderText: String
@@ -15,6 +23,8 @@ final class NomadCustomTextFieldStackView: UIStackView {
     
     private let shouldDisplayButton: Bool
     private let isSecure: Bool
+    
+    //MARK: - UI Components
     
     private lazy var passswordTitleLabel: UILabel = {
         let label = UILabel()
@@ -31,7 +41,7 @@ final class NomadCustomTextFieldStackView: UIStackView {
                                                       attributes: [.foregroundColor: UIColor.gray])
         tf.textColor = .black
         tf.isSecureTextEntry = isSecure
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.delegate = self
         return tf
     }()
     
@@ -44,7 +54,6 @@ final class NomadCustomTextFieldStackView: UIStackView {
     private lazy var passswordBottomDividerView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -54,6 +63,8 @@ final class NomadCustomTextFieldStackView: UIStackView {
         button.setTitleColor(.black, for: .normal)
         return button
     }()
+    
+    //MARK: - Contructor
     
     init(titleStackText: String, placeholderText: String,
          buttonTitle: String = "", shouldDisplayButton: Bool = false, isSecure: Bool = false) {
@@ -71,8 +82,13 @@ final class NomadCustomTextFieldStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func getTFText() -> String {
+        return passswordTextField.text ?? ""
+    }
+    
 }
 
+//MARK: - CustomBaseViewLayout
 
 extension NomadCustomTextFieldStackView: CustomBaseViewLayout {
     
@@ -89,15 +105,22 @@ extension NomadCustomTextFieldStackView: CustomBaseViewLayout {
     }
     
     func configureConstraint() {
-        passswordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        passswordBottomDividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        forgotPasswordButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        passswordTextField.snp.makeConstraints { $0.height.equalTo(50) }
+        passswordBottomDividerView.snp.makeConstraints { $0.height.equalTo(1) }
+        forgotPasswordButton.snp.makeConstraints { $0.width.equalTo(100) }
     }
     
     func configureStyle() {
         spacing = 5
         axis = .vertical
-        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+}
+
+extension NomadCustomTextFieldStackView: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        delegate?.updateTextField(text: textField.text ?? "")
     }
     
 }
