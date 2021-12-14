@@ -10,6 +10,10 @@ import SnapKit
 
 final class SignInViewController: NomadCustomViewController {
     
+    //MARK: - Properties
+    
+    var viewModel: SignInViewModelProtocol
+    
     //MARK: - UI Components
     
     private lazy var nomadLogo: UIImageView = {
@@ -39,6 +43,8 @@ final class SignInViewController: NomadCustomViewController {
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .disableButtonColor
         button.layer.cornerRadius = 8
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(AccessAccountHandleAction), for: .touchUpInside)
         return button
     }()
     
@@ -48,6 +54,11 @@ final class SignInViewController: NomadCustomViewController {
         label.text = "Abrir minha conta"
         label.textColor = .black
         label.attributedText = label.text?.underLined
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(createAccountHandleAction))
+        label.addGestureRecognizer(tap)
+        label.isUserInteractionEnabled = true
+        
         return label
     }()
     
@@ -57,6 +68,17 @@ final class SignInViewController: NomadCustomViewController {
         stack.axis = .vertical
         return stack
     }()
+    
+    //MARK: - Constructor
+    
+    init(viewModel: SignInViewModelProtocol = SignInViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - LifeCycle
     
@@ -113,15 +135,22 @@ final class SignInViewController: NomadCustomViewController {
         self.view.backgroundColor = .white
     }
     
-    private func buttonIsEnable() -> Bool {
-        let CPFConditions: Bool = (!CPFStackView.getTFText().isEmpty)
-        let passwordConditions: Bool = (!passswordStackView.getTFText().isEmpty)
-        return CPFConditions && passwordConditions
+    func validateButtonState() {
+        let (state, color) = viewModel.changeButtonState(tf1: CPFStackView.getTFText(),
+                                                        tf2: passswordStackView.getTFText())
+        
+        accessAccountButton.isEnabled = state
+        accessAccountButton.backgroundColor = color
     }
     
-    private func changeButtonState(_ isEnable: Bool) {
-        accessAccountButton.isEnabled = isEnable
-        accessAccountButton.backgroundColor = isEnable ? .nomadYellowColor : .disableButtonColor
+    //MARK: - Selectors
+    
+    @objc private func AccessAccountHandleAction() {
+        print("Botao Accessar conta foi clicado")
+    }
+    
+    @objc private func createAccountHandleAction() {
+        print("Label criar conta foi clicada")
     }
     
 }
@@ -130,6 +159,6 @@ final class SignInViewController: NomadCustomViewController {
 
 extension SignInViewController: NomadCustomTextFieldStackViewDelegate {
     func updateTextField(text: String) {
-        changeButtonState(buttonIsEnable())
+        validateButtonState()
     }
 }
