@@ -37,13 +37,9 @@ final class SignInViewController: NomadCustomViewController {
         isSecure: true
     )
     
-    private lazy var accessAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Acessar conta", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .disableButtonColor
-        button.layer.cornerRadius = 8
-        button.isEnabled = false
+    private lazy var accessAccountButton: NMDPrimaryButton = {
+//        let button = UIButton(type: .system)
+        let button = NMDPrimaryButton(buttonTitle: "Acessar conta", defaultStateIsEnable: false)
         button.addTarget(self, action: #selector(AccessAccountHandleAction), for: .touchUpInside)
         return button
     }()
@@ -136,11 +132,9 @@ final class SignInViewController: NomadCustomViewController {
     }
     
     func validateButtonState() {
-        let (state, color) = viewModel.changeButtonState(tf1: CPFStackView.getTFText(),
-                                                        tf2: passswordStackView.getTFText())
-        
-        accessAccountButton.isEnabled = state
-        accessAccountButton.backgroundColor = color
+        let isEnable: Bool = viewModel.buttonIsEnable(tf1: CPFStackView.getTFText(),
+                                                      tf2: passswordStackView.getTFText())
+        accessAccountButton.changeButtonState(isEnable)
     }
     
     //MARK: - Selectors
@@ -151,6 +145,10 @@ final class SignInViewController: NomadCustomViewController {
     
     @objc private func createAccountHandleAction() {
         print("Label criar conta foi clicada")
+        let controller = OnboardingViewController()
+        let navigation = UINavigationController(rootViewController: controller)
+        navigation.modalPresentationStyle = .fullScreen
+        self.present(navigation, animated: true, completion: nil)
     }
     
 }
