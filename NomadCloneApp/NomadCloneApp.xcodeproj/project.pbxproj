@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABB0FA1B81BBAB0E9C2A8B4E /* Pods_NomadCloneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4936FDD30835BD078D66027 /* Pods_NomadCloneApp.framework */; };
+		B131D39927682ADF00C1349E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131D39827682ADF00C1349E /* SignInViewModel.swift */; };
 		B186229F2762DFDA00D69B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186229E2762DFDA00D69B75 /* AppDelegate.swift */; };
 		B18622A12762DFDA00D69B75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18622A02762DFDA00D69B75 /* SceneDelegate.swift */; };
 		B18622A82762DFDB00D69B75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18622A72762DFDB00D69B75 /* Assets.xcassets */; };
 		B18622AB2762DFDB00D69B75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18622A92762DFDB00D69B75 /* LaunchScreen.storyboard */; };
 		B18622B62762E2C700D69B75 /* Orchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18622B52762E2C700D69B75 /* Orchestrator.swift */; };
 		B18622B82762E3F600D69B75 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18622B72762E3F600D69B75 /* SignInViewController.swift */; };
+		B1CC7A09276585FF0094D6FF /* NomadCustomTextFieldStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A08276585FF0094D6FF /* NomadCustomTextFieldStackView.swift */; };
+		B1CC7A0B27658CC70094D6FF /* CustomBaseViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A0A27658CC70094D6FF /* CustomBaseViewLayout.swift */; };
+		B1CC7A262766DCDA0094D6FF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A252766DCDA0094D6FF /* String+Extensions.swift */; };
+		B1CC7A282766DFB00094D6FF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A272766DFB00094D6FF /* UIColor+Extension.swift */; };
+		B1CC7A2A2766ED340094D6FF /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC7A292766ED340094D6FF /* CGFloat+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		135631E0E00179B4ADC223CB /* Pods-NomadCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NomadCloneApp.release.xcconfig"; path = "Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp.release.xcconfig"; sourceTree = "<group>"; };
+		8213906397F78266515AA07A /* Pods-NomadCloneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NomadCloneApp.debug.xcconfig"; path = "Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B131D39827682ADF00C1349E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B186229B2762DFDA00D69B75 /* NomadCloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadCloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B186229E2762DFDA00D69B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18622A02762DFDA00D69B75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,12 @@
 		B18622AC2762DFDB00D69B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18622B52762E2C700D69B75 /* Orchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orchestrator.swift; sourceTree = "<group>"; };
 		B18622B72762E3F600D69B75 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B1CC7A08276585FF0094D6FF /* NomadCustomTextFieldStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadCustomTextFieldStackView.swift; sourceTree = "<group>"; };
+		B1CC7A0A27658CC70094D6FF /* CustomBaseViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBaseViewLayout.swift; sourceTree = "<group>"; };
+		B1CC7A252766DCDA0094D6FF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B1CC7A272766DFB00094D6FF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B1CC7A292766ED340094D6FF /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		C4936FDD30835BD078D66027 /* Pods_NomadCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NomadCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB0FA1B81BBAB0E9C2A8B4E /* Pods_NomadCloneApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4FA4EE6980933844756D98D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8213906397F78266515AA07A /* Pods-NomadCloneApp.debug.xcconfig */,
+				135631E0E00179B4ADC223CB /* Pods-NomadCloneApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B131D39527682AAE00C1349E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B131D39627682AB400C1349E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B131D39827682ADF00C1349E /* SignInViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B131D39727682AB900C1349E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B18622B72762E3F600D69B75 /* SignInViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B18622922762DFDA00D69B75 = {
 			isa = PBXGroup;
 			children = (
 				B186229D2762DFDA00D69B75 /* NomadCloneApp */,
 				B186229C2762DFDA00D69B75 /* Products */,
+				4FA4EE6980933844756D98D0 /* Pods */,
+				F7AD710829D7D38FFDD54360 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				B18622B52762E2C700D69B75 /* Orchestrator.swift */,
+				B1CC7A232766DC870094D6FF /* Utils */,
+				B1CC7A07276585CE0094D6FF /* Commons */,
 				B18622B32762E24B00D69B75 /* Scenes */,
 				B18622B22762E07B00D69B75 /* Defaults */,
 				B18622AC2762DFDB00D69B75 /* Info.plist */,
@@ -86,9 +139,46 @@
 		B18622B42762E26900D69B75 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				B18622B72762E3F600D69B75 /* SignInViewController.swift */,
+				B131D39727682AB900C1349E /* Views */,
+				B131D39627682AB400C1349E /* ViewModels */,
+				B131D39527682AAE00C1349E /* Models */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		B1CC7A07276585CE0094D6FF /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				B1CC7A08276585FF0094D6FF /* NomadCustomTextFieldStackView.swift */,
+				B1CC7A0A27658CC70094D6FF /* CustomBaseViewLayout.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		B1CC7A232766DC870094D6FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B1CC7A242766DC8E0094D6FF /* Class+Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B1CC7A242766DC8E0094D6FF /* Class+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1CC7A252766DCDA0094D6FF /* String+Extensions.swift */,
+				B1CC7A292766ED340094D6FF /* CGFloat+Extension.swift */,
+				B1CC7A272766DFB00094D6FF /* UIColor+Extension.swift */,
+			);
+			path = "Class+Extensions";
+			sourceTree = "<group>";
+		};
+		F7AD710829D7D38FFDD54360 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4936FDD30835BD078D66027 /* Pods_NomadCloneApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18622AF2762DFDB00D69B75 /* Build configuration list for PBXNativeTarget "NomadCloneApp" */;
 			buildPhases = (
+				0E4022E1C05BD080AB691469 /* [CP] Check Pods Manifest.lock */,
 				B18622972762DFDA00D69B75 /* Sources */,
 				B18622982762DFDA00D69B75 /* Frameworks */,
 				B18622992762DFDA00D69B75 /* Resources */,
+				7007E0B6FA0CD9065CA96F1D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,15 +248,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E4022E1C05BD080AB691469 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NomadCloneApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7007E0B6FA0CD9065CA96F1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B18622972762DFDA00D69B75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B18622B82762E3F600D69B75 /* SignInViewController.swift in Sources */,
+				B1CC7A262766DCDA0094D6FF /* String+Extensions.swift in Sources */,
 				B186229F2762DFDA00D69B75 /* AppDelegate.swift in Sources */,
+				B1CC7A0B27658CC70094D6FF /* CustomBaseViewLayout.swift in Sources */,
+				B131D39927682ADF00C1349E /* SignInViewModel.swift in Sources */,
+				B1CC7A2A2766ED340094D6FF /* CGFloat+Extension.swift in Sources */,
 				B18622B62762E2C700D69B75 /* Orchestrator.swift in Sources */,
+				B1CC7A09276585FF0094D6FF /* NomadCustomTextFieldStackView.swift in Sources */,
 				B18622A12762DFDA00D69B75 /* SceneDelegate.swift in Sources */,
+				B1CC7A282766DFB00094D6FF /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +440,7 @@
 		};
 		B18622B02762DFDB00D69B75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8213906397F78266515AA07A /* Pods-NomadCloneApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -328,6 +469,7 @@
 		};
 		B18622B12762DFDB00D69B75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135631E0E00179B4ADC223CB /* Pods-NomadCloneApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
