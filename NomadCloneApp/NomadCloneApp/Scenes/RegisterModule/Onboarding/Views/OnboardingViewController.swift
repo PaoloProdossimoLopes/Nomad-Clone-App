@@ -9,11 +9,11 @@ import UIKit
 
 final class OnboardingViewController: NomadCustomViewController {
     
+    private let viewModel: OnboardingViewModel
+    
     private lazy var backBarButton: UIBarButtonItem = {
         let image = UIImage(systemName: "arrow.backward")
-        let button = UIBarButtonItem(image: image,
-                                     style: .plain,
-                                     target: self,
+        let button = UIBarButtonItem(image: image, style: .plain, target: self,
                                      action: #selector(backBarButtonHandleTapped))
         button.tintColor = .black
         return button
@@ -21,9 +21,7 @@ final class OnboardingViewController: NomadCustomViewController {
     
     private lazy var closeBarButton: UIBarButtonItem = {
         let image = UIImage(systemName: "xmark")
-        let button = UIBarButtonItem(image: image,
-                                     style: .plain,
-                                     target: self,
+        let button = UIBarButtonItem(image: image, style: .plain, target: self,
                                      action: #selector(closeBarButtonHandleTapped))
         button.tintColor = .black
         return button
@@ -46,7 +44,17 @@ final class OnboardingViewController: NomadCustomViewController {
         button.addTarget(self, action: #selector(nextStepButtonHandleTapped), for: .touchUpInside)
         return button
     }()
-
+    
+    private lazy var updatedView: UIView = OnboardingSplashView()
+    
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +63,7 @@ final class OnboardingViewController: NomadCustomViewController {
     
     func configureViewHierarchy() {
         view.addSubview(nextStepButton)
+        view.addSubview(updatedView)
     }
     
     func configureConstraint() {
@@ -69,6 +78,12 @@ final class OnboardingViewController: NomadCustomViewController {
             $0.trailing.equalTo(self.view.snp.trailing).offset(-20)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
+        
+        updatedView.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            $0.centerX.equalTo(self.view.snp.centerX)
+        }
+        
     }
     
     func configureStyle() {

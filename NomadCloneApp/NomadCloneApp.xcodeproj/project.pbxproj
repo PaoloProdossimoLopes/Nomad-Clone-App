@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ABB0FA1B81BBAB0E9C2A8B4E /* Pods_NomadCloneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4936FDD30835BD078D66027 /* Pods_NomadCloneApp.framework */; };
 		B131D39927682ADF00C1349E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131D39827682ADF00C1349E /* SignInViewModel.swift */; };
+		B1360E79276ACD2B009E6242 /* OnboardingSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1360E78276ACD2B009E6242 /* OnboardingSplashView.swift */; };
+		B1360E7B276AD39E009E6242 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1360E7A276AD39E009E6242 /* OnboardingModel.swift */; };
+		B1360E7D276AD3B2009E6242 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1360E7C276AD3B2009E6242 /* OnboardingViewModel.swift */; };
 		B169D2CD276979F200393CFD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169D2CC276979F200393CFD /* OnboardingViewController.swift */; };
 		B169D2CF2769805400393CFD /* NMDPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169D2CE2769805400393CFD /* NMDPrimaryButton.swift */; };
 		B186229F2762DFDA00D69B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186229E2762DFDA00D69B75 /* AppDelegate.swift */; };
@@ -28,6 +31,9 @@
 		135631E0E00179B4ADC223CB /* Pods-NomadCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NomadCloneApp.release.xcconfig"; path = "Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp.release.xcconfig"; sourceTree = "<group>"; };
 		8213906397F78266515AA07A /* Pods-NomadCloneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NomadCloneApp.debug.xcconfig"; path = "Target Support Files/Pods-NomadCloneApp/Pods-NomadCloneApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B131D39827682ADF00C1349E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		B1360E78276ACD2B009E6242 /* OnboardingSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSplashView.swift; sourceTree = "<group>"; };
+		B1360E7A276AD39E009E6242 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		B1360E7C276AD3B2009E6242 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		B169D2CC276979F200393CFD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B169D2CE2769805400393CFD /* NMDPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMDPrimaryButton.swift; sourceTree = "<group>"; };
 		B186229B2762DFDA00D69B75 /* NomadCloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadCloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +96,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1360E77276ACD11009E6242 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				B1360E78276ACD2B009E6242 /* OnboardingSplashView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		B169D2C6276978EC00393CFD /* RegisterModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +125,7 @@
 		B169D2C9276979D000393CFD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1360E7A276AD39E009E6242 /* OnboardingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +133,7 @@
 		B169D2CA276979D400393CFD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B1360E7C276AD3B2009E6242 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -126,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B169D2CC276979F200393CFD /* OnboardingViewController.swift */,
+				B1360E77276ACD11009E6242 /* SubViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,12 +362,15 @@
 				B1CC7A262766DCDA0094D6FF /* String+Extensions.swift in Sources */,
 				B186229F2762DFDA00D69B75 /* AppDelegate.swift in Sources */,
 				B1CC7A0B27658CC70094D6FF /* CustomBaseViewLayout.swift in Sources */,
+				B1360E7B276AD39E009E6242 /* OnboardingModel.swift in Sources */,
 				B169D2CF2769805400393CFD /* NMDPrimaryButton.swift in Sources */,
 				B131D39927682ADF00C1349E /* SignInViewModel.swift in Sources */,
 				B1CC7A2A2766ED340094D6FF /* CGFloat+Extension.swift in Sources */,
 				B18622B62762E2C700D69B75 /* Orchestrator.swift in Sources */,
 				B1CC7A09276585FF0094D6FF /* NomadCustomTextFieldStackView.swift in Sources */,
+				B1360E7D276AD3B2009E6242 /* OnboardingViewModel.swift in Sources */,
 				B18622A12762DFDA00D69B75 /* SceneDelegate.swift in Sources */,
+				B1360E79276ACD2B009E6242 /* OnboardingSplashView.swift in Sources */,
 				B169D2CD276979F200393CFD /* OnboardingViewController.swift in Sources */,
 				B1CC7A282766DFB00094D6FF /* UIColor+Extension.swift in Sources */,
 			);

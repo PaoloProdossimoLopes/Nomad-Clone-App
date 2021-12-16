@@ -144,9 +144,11 @@ final class SignInViewController: NomadCustomViewController {
     }
     
     @objc private func createAccountHandleAction() {
-        print("Label criar conta foi clicada")
-        let controller = OnboardingViewController()
+
+        let viewModel = OnboardingViewModel()
+        let controller = OnboardingViewController(viewModel: viewModel)
         let navigation = UINavigationController(rootViewController: controller)
+        
         navigation.modalPresentationStyle = .fullScreen
         self.present(navigation, animated: true, completion: nil)
     }
